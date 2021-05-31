@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="preference_title_size_default">16sp</dimen>
+    <dimen name="preference_desc_size_default">14sp</dimen>
+
+</resources>

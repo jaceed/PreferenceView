@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PreferenceView">
+        <attr name="preferenceIcon" format="reference" />
+        <attr name="preferenceTitle" format="string|reference" />
+        <attr name="preferenceTitleColor" format="color|reference" />
+        <attr name="preferenceTitleSize" format="dimension|reference" />
+        <attr name="preferenceTitleLabel" format="reference" />
+        <attr name="preferenceDesc" format="string|reference" />
+        <attr name="preferenceDescColor" format="color|reference" />
+        <attr name="preferenceDescSize" format="dimension|reference" />
+        <attr name="preferenceStateIcon" format="reference" />
+        <attr name="preferenceStateIconTint" format="color|reference" />
+        <attr name="preferenceType" format="integer">
+            <flag name="normal" value="0" />
+            <flag name="switcher" value="1" />
+        </attr>
+    </declare-styleable>
+
+</resources>
