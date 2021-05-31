@@ -1,3 +1,3 @@
-rootProject.name = "PreferenceView"
+rootProject.name = "preference-view"
 include ':app'
 include ':PreferenceView'
