@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:divider="@color/cardview_dark_background"
             android:orientation="vertical"
-            android:showDividers="middle">
+            android:showDividers="middle|end">
 
             <com.jacee.widget.PreferenceView
                 android:id="@+id/one"
@@ -41,11 +41,73 @@
                 app:preferenceDesc="three desc"
                 app:preferenceDescColor="@android:color/holo_blue_light"
                 app:preferenceDescSize="10sp"
-                app:preferenceTitle="three"
                 app:preferenceStateIcon="@drawable/ic_baseline_arrow_forward_24"
+                app:preferenceTitle="three"
                 app:preferenceTitleColor="@android:color/holo_green_dark"
                 app:preferenceTitleLabel="@drawable/ic_version_new"
                 app:preferenceTitleSize="20sp" />
+
+            <com.jacee.widget.PreferenceView
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                app:preferenceTitle="four"
+                app:preferenceType="switcher" />
+
+            <com.jacee.widget.PreferenceView
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                app:preferenceIcon="@drawable/ic_baseline_album_24"
+                app:preferenceTitle="five"
+                app:preferenceType="switcher" />
+
+            <com.jacee.widget.PreferenceView
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                app:preferenceDesc="six desc"
+                app:preferenceDescColor="@android:color/holo_blue_light"
+                app:preferenceDescSize="10sp"
+                app:preferenceIcon="@drawable/ic_baseline_album_24"
+                app:preferenceStateIcon="@drawable/ic_baseline_arrow_forward_24"
+                app:preferenceStateIconTint="@android:color/holo_red_dark"
+                app:preferenceTitle="six"
+                app:preferenceTitleColor="@android:color/holo_green_dark"
+                app:preferenceTitleLabel="@drawable/ic_version_new"
+                app:preferenceTitleSize="20sp" />
+
+            <com.jacee.widget.PreferenceView
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                app:preferenceDesc="seven desc"
+                app:preferencePaddingLeft="40dp"
+                app:preferencePaddingRight="0dp"
+                app:preferenceTitle="seven" />
+
+            <com.jacee.widget.PreferenceView
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                app:preferenceIcon="@drawable/ic_baseline_album_24"
+                app:preferencePaddingLeft="40dp"
+                app:preferencePaddingRight="@dimen/preference_padding_lr"
+                app:preferenceTitle="eight"
+                app:preferenceType="switcher" />
+
+            <com.jacee.widget.PreferenceView
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                app:preferenceIcon="@drawable/ic_baseline_album_24"
+                app:preferenceIconPadding="0dp"
+                app:preferenceStateIcon="@drawable/ic_baseline_arrow_forward_24"
+                app:preferenceTitle="nine" />
+
+            <com.jacee.widget.PreferenceView
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                app:preferenceIcon="@drawable/ic_baseline_album_24"
+                app:preferenceIconPadding="0dp"
+                app:preferencePaddingLeft="0dp"
+                app:preferencePaddingRight="0dp"
+                app:preferenceStateIcon="@drawable/ic_baseline_arrow_forward_24"
+                app:preferenceTitle="ten" />
 
         </LinearLayout>
 

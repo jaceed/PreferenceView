@@ -8,9 +8,10 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.widget.ImageView
-import android.widget.Switch
 import android.widget.TextView
+import androidx.appcompat.widget.SwitchCompat
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.Guideline
 import com.github.jaceed.extender.view.content
 import com.github.jaceed.extender.view.visible
 import com.jacee.widget.preferenceview.R
@@ -23,6 +24,7 @@ class PreferenceView @JvmOverloads constructor(context: Context, attrs: Attribut
     ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     private var icon: Drawable?
+    private var iconPadding: Int = -1
     private var title: CharSequence?
     private var titleColor: Int = 0
     private var titleSize: Int = 0
@@ -33,13 +35,21 @@ class PreferenceView @JvmOverloads constructor(context: Context, attrs: Attribut
     private var stateIcon: Drawable?
     private var stateIconTint: Int = -1
     private var type: Int
+    private var preferencePaddingLeft: Int = -1
+    private var preferencePaddingRight: Int = -1
 
+    private lateinit var guideLeft: Guideline
+    private lateinit var guideRight: Guideline
     private lateinit var iconView: ImageView
     private lateinit var titleView: TextView
     private lateinit var titleLabelView: ImageView
     private lateinit var descView: TextView
     private lateinit var stateIconView: ImageView
-    private lateinit var switchView: Switch
+    private lateinit var switchView: SwitchCompat
+
+    private val paddingLR by lazy {
+        resources.getDimensionPixelSize(R.dimen.preference_padding_lr)
+    }
 
 
     init {
@@ -47,6 +57,7 @@ class PreferenceView @JvmOverloads constructor(context: Context, attrs: Attribut
 
         val a = context.obtainStyledAttributes(attrs, R.styleable.PreferenceView, defStyleAttr, defStyleRes)
         icon = a.getDrawable(R.styleable.PreferenceView_preferenceIcon)
+        iconPadding = a.getDimensionPixelSize(R.styleable.PreferenceView_preferenceIconPadding, resources.getDimensionPixelSize(R.dimen.preference_icon_padding))
         title = a.getString(R.styleable.PreferenceView_preferenceTitle)
         titleColor = a.getColor(R.styleable.PreferenceView_preferenceTitleColor, resources.getColor(R.color.preference_title_color))
         titleSize = a.getDimensionPixelSize(R.styleable.PreferenceView_preferenceTitleSize, resources.getDimensionPixelSize(R.dimen.preference_title_size_default))
@@ -57,13 +68,17 @@ class PreferenceView @JvmOverloads constructor(context: Context, attrs: Attribut
         stateIcon = a.getDrawable(R.styleable.PreferenceView_preferenceStateIcon)
         stateIconTint = a.getColor(R.styleable.PreferenceView_preferenceStateIconTint, Color.GRAY)
         type = a.getInt(R.styleable.PreferenceView_preferenceType, TYPE_NORMAL)
+        preferencePaddingLeft = a.getDimensionPixelSize(R.styleable.PreferenceView_preferencePaddingLeft, paddingLR)
+        preferencePaddingRight = a.getDimensionPixelSize(R.styleable.PreferenceView_preferencePaddingRight, paddingLR)
         a.recycle()
     }
 
     private fun refresh() {
         iconView.visible = icon != null
-        if (iconView.visible)
+        if (iconView.visible) {
             iconView.setImageDrawable(icon)
+            iconView.setPadding(iconView.paddingLeft, iconView.paddingTop, iconPadding, iconView.paddingBottom)
+        }
 
         titleView.text = title
         titleView.setTextColor(titleColor)
@@ -85,10 +100,15 @@ class PreferenceView @JvmOverloads constructor(context: Context, attrs: Attribut
             stateIconView.visible = false
             switchView.visible = true
         }
+
+        guideLeft.setGuidelineBegin(preferencePaddingLeft)
+        guideRight.setGuidelineEnd(preferencePaddingRight)
     }
 
     override fun onFinishInflate() {
         super.onFinishInflate()
+        guideLeft = findViewById(R.id.lg)
+        guideRight = findViewById(R.id.rg)
         iconView = findViewById(R.id.icon)
         titleView = findViewById(R.id.title)
         titleLabelView = findViewById(R.id.title_label)

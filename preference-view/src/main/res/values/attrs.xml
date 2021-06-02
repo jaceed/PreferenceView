@@ -3,6 +3,7 @@
 
     <declare-styleable name="PreferenceView">
         <attr name="preferenceIcon" format="reference" />
+        <attr name="preferenceIconPadding" format="dimension" />
         <attr name="preferenceTitle" format="string|reference" />
         <attr name="preferenceTitleColor" format="color|reference" />
         <attr name="preferenceTitleSize" format="dimension|reference" />
@@ -12,6 +13,8 @@
         <attr name="preferenceDescSize" format="dimension|reference" />
         <attr name="preferenceStateIcon" format="reference" />
         <attr name="preferenceStateIconTint" format="color|reference" />
+        <attr name="preferencePaddingLeft" format="dimension" />
+        <attr name="preferencePaddingRight" format="dimension" />
         <attr name="preferenceType" format="integer">
             <flag name="normal" value="0" />
             <flag name="switcher" value="1" />
