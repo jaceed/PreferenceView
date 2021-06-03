@@ -19,6 +19,7 @@
             <flag name="normal" value="0" />
             <flag name="switcher" value="1" />
         </attr>
+        <attr name="preferenceSwitchExpanded" format="boolean" />
     </declare-styleable>
 
 </resources>

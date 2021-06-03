@@ -48,6 +48,7 @@
                 app:preferenceTitleSize="20sp" />
 
             <com.jacee.widget.PreferenceView
+                android:id="@+id/four"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 app:preferenceTitle="four"
@@ -57,6 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 app:preferenceIcon="@drawable/ic_baseline_album_24"
+                app:preferenceSwitchExpanded="true"
                 app:preferenceTitle="five"
                 app:preferenceType="switcher" />
 

@@ -13,6 +13,7 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.Guideline
 import com.github.jaceed.extender.view.content
+import com.github.jaceed.extender.view.setOnProtectedClickListener
 import com.github.jaceed.extender.view.visible
 import com.jacee.widget.preferenceview.R
 
@@ -37,6 +38,7 @@ class PreferenceView @JvmOverloads constructor(context: Context, attrs: Attribut
     private var type: Int
     private var preferencePaddingLeft: Int = -1
     private var preferencePaddingRight: Int = -1
+    private var preferenceSwitchExpanded: Boolean = false
 
     private lateinit var guideLeft: Guideline
     private lateinit var guideRight: Guideline
@@ -50,6 +52,8 @@ class PreferenceView @JvmOverloads constructor(context: Context, attrs: Attribut
     private val paddingLR by lazy {
         resources.getDimensionPixelSize(R.dimen.preference_padding_lr)
     }
+
+    private var listener: OnPreferenceListener? = null
 
 
     init {
@@ -70,6 +74,7 @@ class PreferenceView @JvmOverloads constructor(context: Context, attrs: Attribut
         type = a.getInt(R.styleable.PreferenceView_preferenceType, TYPE_NORMAL)
         preferencePaddingLeft = a.getDimensionPixelSize(R.styleable.PreferenceView_preferencePaddingLeft, paddingLR)
         preferencePaddingRight = a.getDimensionPixelSize(R.styleable.PreferenceView_preferencePaddingRight, paddingLR)
+        preferenceSwitchExpanded = a.getBoolean(R.styleable.PreferenceView_preferenceSwitchExpanded, false)
         a.recycle()
     }
 
@@ -99,6 +104,11 @@ class PreferenceView @JvmOverloads constructor(context: Context, attrs: Attribut
             descView.visible = false
             stateIconView.visible = false
             switchView.visible = true
+            if (preferenceSwitchExpanded) {
+                setOnProtectedClickListener(500) {
+                    switchView.toggle()
+                }
+            }
         }
 
         guideLeft.setGuidelineBegin(preferencePaddingLeft)
@@ -116,7 +126,20 @@ class PreferenceView @JvmOverloads constructor(context: Context, attrs: Attribut
         stateIconView = findViewById(R.id.state_icon)
         switchView = findViewById(R.id.switch_btn)
 
+        switchView.setOnCheckedChangeListener { _, isChecked ->
+            listener?.onSwitchChanged(isChecked)
+        }
+
         refresh()
+    }
+
+    fun setOnPreferenceListener(listener: OnPreferenceListener) {
+        this.listener = listener
+    }
+
+
+    interface OnPreferenceListener {
+        fun onSwitchChanged(checked: Boolean)
     }
 
 
