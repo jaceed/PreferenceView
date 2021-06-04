@@ -111,6 +111,12 @@
                 app:preferenceStateIcon="@drawable/ic_baseline_arrow_forward_24"
                 app:preferenceTitle="ten" />
 
+            <com.jacee.widget.PreferenceView
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                app:preferenceDesc="desc desc desc desc desc desc desc desc"
+                app:preferenceTitle="eleven eleven eleven eleven eleven eleven"/>
+
         </LinearLayout>
 
     </ScrollView>

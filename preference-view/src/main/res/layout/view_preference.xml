@@ -52,12 +52,15 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
+        android:maxLines="2"
         android:textColor="@android:color/black"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/title_label"
+        app:layout_constraintHorizontal_weight="5"
         app:layout_constraintStart_toEndOf="@id/lb"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="客服中心客服中心" />
@@ -69,10 +72,11 @@
         android:layout_marginStart="8dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/title"
+        app:layout_constraintEnd_toStartOf="@+id/desc"
         app:layout_constraintStart_toEndOf="@+id/title"
         app:layout_constraintTop_toTopOf="@+id/title"
         app:srcCompat="?android:attr/actionModeSelectAllDrawable"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
     <ImageView
         android:id="@+id/state_icon"
@@ -87,14 +91,18 @@
 
     <TextView
         android:id="@+id/desc"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:maxLines="2"
         android:textAlignment="viewEnd"
         android:textColor="#454545"
         android:textSize="14dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/rb"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toEndOf="@+id/title_label"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="描述描述描述"
         tools:visibility="visible" />
