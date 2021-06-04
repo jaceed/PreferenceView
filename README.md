@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/jaceed/preference-view.svg)](https://jitpack.io/#jaceed/preference-view)
+
 # PreferenceView
 A handful preference item view
 
@@ -20,7 +22,7 @@ Then, add the dependency:
 
 ```gradle
       dependencies {
-	        implementation 'com.github.jaceed:PreferenceView:1.0.0'
+	        implementation 'com.github.jaceed:preference-view:1.0.0'
 	}
 ```
 
@@ -40,7 +42,7 @@ and
 ```gradle
       <dependency>
 	    <groupId>com.github.jaceed</groupId>
-	    <artifactId>PreferenceView</artifactId>
+	    <artifactId>preference-view</artifactId>
 	    <version>1.0.0</version>
 	</dependency>
 ```
